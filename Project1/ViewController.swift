@@ -40,6 +40,14 @@ class ViewController: UITableViewController {
         return cell //Sets a text label to each cell.
         
     } //This method specifies what each row should look like
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            vc.selectedImage = pictures[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true) //This pushes th Detail view controller into the screen of the user
+            
+        }
+    }
 
 
 }
