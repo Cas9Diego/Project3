@@ -13,6 +13,9 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Storm Viewer"
+        navigationController?.navigationBar.prefersLargeTitles = true
         let fm = FileManager.default //Filemanager.default is a built-in system type that let's us work with a file system
         let path = Bundle.main.resourcePath! //This constant sets the resoure path of our apps bundle. A bundle is a directory containing our compiled program and all our assets, so this constant says "Tell me where I can find all the images that I added". The EXCLAMATION MARK is necessary because our main bundle may not have a resource path, because some app bundles dont have a resource path. However, iOS main bundles always have a resource path, so it is ok to do forced unwrapping
         let items = try! fm.contentsOfDirectory(atPath: path) // this variable is set to the content of the directory at a path, which path? the one we defined before. Basicaly, we say "USe the filemanager to read the documents at a certain path, the path we signaled".
